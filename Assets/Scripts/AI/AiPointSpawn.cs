@@ -10,7 +10,7 @@ public class GetPoint : MonoBehaviour
 
     [SerializeField] private float Range;
 
-    private void Awake()
+    public void Awake()
     {
         Instance = this;
     }
@@ -48,7 +48,7 @@ public class GetPoint : MonoBehaviour
         return point == null ? Vector3.zero : point.position;
     }
 
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, Range);
     }
