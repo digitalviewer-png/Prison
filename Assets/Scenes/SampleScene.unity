@@ -687,11 +687,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100132, guid: ca915208268878044bec8f250553fa82,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1316890918}
+      addedObject: {fileID: 1316890920}
     - targetCorrespondingSourceObject: {fileID: 100132, guid: ca915208268878044bec8f250553fa82,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1316890920}
+      addedObject: {fileID: 1316890922}
   m_SourcePrefab: {fileID: 100100000, guid: ca915208268878044bec8f250553fa82, type: 3}
 --- !u!1 &1316890912 stripped
 GameObject:
@@ -814,28 +814,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.93, z: 0}
---- !u!114 &1316890918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316890912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41381c1d9948c7a428f85dba7de9476c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterController: {fileID: 1316890917}
-  speed: 6
-  run: 12
-  gravity: -19.62
-  groundDistance: 0.4
-  jumpHeight: 1
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  groundCheck: {fileID: 1165498640}
 --- !u!114 &1316890920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,6 +828,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1316890917}
   _newHeight: 1
+--- !u!95 &1316890921 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: ca915208268878044bec8f250553fa82,
+    type: 3}
+  m_PrefabInstance: {fileID: 1316890911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1316890922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316890912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41381c1d9948c7a428f85dba7de9476c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 1316890917}
+  animator: {fileID: 1316890921}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  groundCheck: {fileID: 1165498640}
+  speed: 3
+  run: 10
+  gravity: -19.62
+  groundDistance: 0.4
+  jumpHeight: 1
 --- !u!4 &1344769454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400054, guid: ca915208268878044bec8f250553fa82,
