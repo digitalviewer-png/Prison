@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
-    [SerializeField] private float speed = 12f;
+    [SerializeField] private float speed = 6f;
+    [SerializeField] private float run = 12f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private float jumpHeight = 3f;
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
 
-    void Update()
+    public void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -38,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded) 
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            characterController.Move(move * run * Time.deltaTime);
         }
 
         velocity.y += gravity * Time.deltaTime;

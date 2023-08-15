@@ -41,7 +41,7 @@ public class Crouch : MonoBehaviour
         
     }
 
-    void Off() // Функция "Off"
+    void Off() 
     {
         _check = false;
         controller.height += 0.72f; 
