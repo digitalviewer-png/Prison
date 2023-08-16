@@ -9,16 +9,12 @@ public class Ai : MonoBehaviour
 
     [SerializeField] private float radius;
 
-    public void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
 
     public void Update()
     {
         if (!agent.hasPath)
         {
-            agent.SetDestination(GetPoint.Instance.GetRandomPoint(transform, radius));
+            agent.SetDestination(GetPoint.Instance.GetRandomPoint());
         }
     }
 
