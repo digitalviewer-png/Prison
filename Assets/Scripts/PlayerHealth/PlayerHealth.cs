@@ -8,9 +8,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider enemy)
     {
-        health -= 1;
+        HealthDamage(1);
+    }
+    
+    public void HealthDamage(int damage)
+    {
+        health -= damage;
 
-        if (health < 0)
+        if (health < 1)
         {
             health = 0;
             Debug.Log("Death");
