@@ -7,7 +7,7 @@ public class GetPoint : MonoBehaviour
 {
 
     [SerializeField] public static GetPoint Instance;
-
+    [SerializeField] private GameObject point;
     [SerializeField] private float Range;
 
     public void Awake()
