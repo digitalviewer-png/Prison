@@ -3,19 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GetPoint : MonoBehaviour
+public class AIPointSpawn : MonoBehaviour
 {
 
-    [SerializeField] public static GetPoint Instance;
-    [SerializeField] private GameObject point;
     [SerializeField] private float Range;
 
-    public void Awake()
-    {
-        Instance = this;
-    }
-
-    bool RandomPoint(Vector3 center, float range, out Vector3 result)
+    private bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
 
         for (int i = 0; i < 30; i++)

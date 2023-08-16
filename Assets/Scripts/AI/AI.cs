@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ai : MonoBehaviour
+public class AI : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-
+    [SerializeField] private AIPointSpawn spawn;
     [SerializeField] private float radius;
 
 
@@ -14,7 +14,7 @@ public class Ai : MonoBehaviour
     {
         if (!agent.hasPath)
         {
-            agent.SetDestination(GetPoint.Instance.GetRandomPoint());
+            agent.SetDestination(spawn.GetRandomPoint());
         }
     }
 
