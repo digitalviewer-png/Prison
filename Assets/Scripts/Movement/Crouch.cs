@@ -1,50 +1,60 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class Crouch : MonoBehaviour
 {
-    [SerializeField] private CharacterController controller; 
-    [SerializeField] private float _newHeight = 1; 
-    
-    private Vector3 _newPos; 
-    private bool _check = false; 
+    [SerializeField] private float _newHeight = 1;
+    [SerializeField] private float speed = 100f;
 
-    void Update()
+    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerMovement pm;
+    [SerializeField] private CharacterController characterController;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Animator animator;
+
+    private bool isCrouching = false;
+
+    private Vector3 _newPos;
+    private Vector3 _prevPos;
+
+
+    public void Update()
     {
-        _newPos = new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z);
-        
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.LeftControl))
-        
+        _newPos = new Vector3(0, 1.13f, 0);
+        _prevPos = new Vector3(0, 1f, 0);
+
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 moveWhileCrouching = transform.right * x + transform.forward * z;
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && characterController.isGrounded)
         {
-            if (!_check) 
+            if (isCrouching == false)
             {
-                On(); 
+                animator.SetBool("isCrouching", true);
+                isCrouching = true;
+                Crouching();
+
             }
-            else if (_check) 
+
+            else if (isCrouching == true)
             {
-                Off(); 
+                animator.SetBool("isCrouching", false);
+                characterController.height += 0.85f;
+                characterController.center = _prevPos;
+                isCrouching = false;
             }
         }
-        if (Input.GetKey(KeyCode.LeftShift)) 
-        {
-            if (_check) 
-            {
-                Off();
-            }
-        }
+
+
     }
 
-    void On() 
+    public void Crouching()
     {
-        _check = true; 
-        controller.height = _newHeight;
+        characterController.height = _newHeight;
         
-    }
-
-    void Off() 
-    {
-        _check = false;
-        controller.height += 0.72f; 
-        transform.position = _newPos;  
+        characterController.center = _newPos;
     }
 }
