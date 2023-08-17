@@ -8,7 +8,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider enemy)
     {
-        HealthDamage(1);
+        if (enemy.gameObject.tag == "Enemy")
+        {
+            HealthDamage(1);
+        }
     }
     
     public void HealthDamage(int damage)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlideVer2 : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    [SerializeField] CapsuleCollider collider;
+    [SerializeField] CapsuleCollider col;
 
     [SerializeField] private float orginalHeight;
     [SerializeField] private float reducedHeaight;
@@ -27,13 +27,13 @@ public class SlideVer2 : MonoBehaviour
 
     public void Sliding()
     {
-        collider.height = reducedHeaight;
+        col.height = reducedHeaight;
         rb.AddForce(transform.forward * slideSpeed, ForceMode.VelocityChange);
     }
 
     public void GoUp()
     {
-        collider.height = orginalHeight;
+        col.height = orginalHeight;
     }
 
 }   

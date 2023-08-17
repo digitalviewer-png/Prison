@@ -4,8 +4,7 @@ using UnityEngine;
 public class Crouch : MonoBehaviour
 {
     [SerializeField] private float _newHeight = 1;
-    [SerializeField] private float speed = 100f;
-
+    
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private CharacterController characterController;
