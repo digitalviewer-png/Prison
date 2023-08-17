@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Forward", z);
         animator.SetFloat("Strafe", x);
+        
 
         if (Input.GetButtonDown("Jump") && isGrounded) 
         {
