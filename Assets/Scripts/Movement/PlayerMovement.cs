@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
-
     public void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);

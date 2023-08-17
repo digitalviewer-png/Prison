@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Crouch : MonoBehaviour
+public class CrouchTest : MonoBehaviour
 {
     [SerializeField] private CharacterController controller; 
     [SerializeField] private float _newHeight = 1; 
@@ -9,7 +9,7 @@ public class Crouch : MonoBehaviour
     private Vector3 _newPos; 
     private bool _check = false; 
 
-    void Update()
+    public void Update()
     {
         _newPos = new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z);
         
@@ -44,7 +44,7 @@ public class Crouch : MonoBehaviour
     void Off() 
     {
         _check = false;
-        controller.height += 0.72f; 
+        controller.height += 0.85f; 
         transform.position = _newPos;  
     }
 }
