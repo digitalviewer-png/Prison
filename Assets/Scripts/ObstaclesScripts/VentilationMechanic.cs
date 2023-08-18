@@ -6,13 +6,23 @@ public class VentilationMechanic : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private GameObject player;
+    [SerializeField] private CharacterController characterController;
+    [SerializeField] private float force = 100f;
 
-    public void OnTriggerEnter(Collider collision)
+    public void Update()
     {
+
+    }
+
+
+    public void OnTriggerStay(Collider collision)
+    {
+        float y = Input.GetAxis("Vertical");
+        Vector3 moveUp = transform.up * y;
+
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("s");
-            rb.AddForce(transform.up, ForceMode.Force);
+            characterController.Move(moveUp * force * Time.deltaTime);
             
         }
     }
