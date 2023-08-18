@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class PickUpItems : MonoBehaviour
 {
-    private InventorySlots inv;
-    public void OnTriggerEnter(Collider other)
+    [SerializeField] private InventorySlots inv;
+
+    public void OnTriggerEnter(Collider weapon)
     {
-        if (other.gameObject.tag == "Player")
+        if (weapon.gameObject.tag == "Knife")
         {
-            inv.Check();
+            inv.Check(1);
+        }
+        else if (weapon.gameObject.tag == "Dubina")
+        {
+            inv.Check(2);
         }
     }
 }

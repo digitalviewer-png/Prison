@@ -58,6 +58,9 @@ public class GuardAI : MonoBehaviour
 
     public void OnTriggerEnter(Collider enemyGuard)
     {
-        playerHealth.HealthDamage(3);
+        if (enemyGuard.gameObject.tag == "Player") 
+        {
+            playerHealth.HealthDamage(3);
+        }
     }
 }

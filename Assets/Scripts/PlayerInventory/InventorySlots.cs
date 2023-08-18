@@ -9,9 +9,10 @@ public class InventorySlots : MonoBehaviour
     [SerializeField] private GameObject image2;
     [SerializeField] private GameObject image3;
     [SerializeField] private GameObject weapon1, weapon2, weapon3;
-    [SerializeField] private float playerButtons;
+    [SerializeField] private ThrowingWeapons throwing;
+
     private float weaponNumber;
-    private bool weapon1Slot,weapon2Slot,weapon3Slot;
+    private bool weapon1Slot = true,weapon2Slot = true,weapon3Slot = true;
 
     public void Update()
     {
@@ -44,27 +45,51 @@ public class InventorySlots : MonoBehaviour
         if(weaponNumber == 1 && Input.GetButtonDown("Fire1")) 
         {
             weapon1.SetActive(false);
+            if (!weapon1Slot == false)
+            {
+                throwing.Throw(1);
+           }
             weapon1Slot = false;
 
         }
+
         else if (weaponNumber == 2 && Input.GetButtonDown("Fire1"))
         {
             weapon2.SetActive(false);
+            if (!weapon2Slot == false)
+            {
+                throwing.Throw(2);
+            }
             weapon2Slot = false;
         }
+
         else if (weaponNumber == 3 && Input.GetButtonDown("Fire1"))
         {
             weapon3.SetActive(false);
+            if (!weapon3Slot == false)
+            {
+                throwing.Throw(2);
+            }
             weapon3Slot = false;
         }
     }
 
-    public void Check()
+    public void Check(int number)
     {
-        if (weapon1Slot == false)
+        if (weapon1Slot == false && number == 1)
         {
             weapon1.SetActive(true);
             weapon1Slot = true;
+        }
+        else if (weapon2Slot == false && number == 2)
+        {
+            weapon2.SetActive(true);
+            weapon2Slot = true;
+        }
+        else if (weapon3Slot == false && number == 2)
+        {
+            weapon3.SetActive(true);
+            weapon3Slot = true;
         }
     }
 
