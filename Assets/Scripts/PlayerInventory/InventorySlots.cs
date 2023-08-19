@@ -12,8 +12,7 @@ public class InventorySlots : MonoBehaviour
 
     [SerializeField] private ThrowingWeapons throwing;
 
-    [SerializeField] private DestroyDubina destroyDubina;
-    [SerializeField] private DestroyKnife destroyKnife;
+
 
     private float weaponNumber;
     private bool weapon1Slot = true,weapon2Slot = true,weapon3Slot = true;
@@ -84,19 +83,16 @@ public class InventorySlots : MonoBehaviour
         {
             weapon1.SetActive(true);
             weapon1Slot = true;
-            destroyKnife.DestroyThisObject();
         }
         else if (weapon2Slot == false && number == 2)
         {
             weapon2.SetActive(true);
             weapon2Slot = true;
-            destroyDubina.DestroyThisObject();
         }
         else if (weapon3Slot == false && number == 2)
         {
             weapon3.SetActive(true);
             weapon3Slot = true;
-            destroyDubina.DestroyThisObject();
         }
     }
 
