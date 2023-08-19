@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class PickUpItems : MonoBehaviour
 {
-    [SerializeField] private InventorySlots inv;
+    [SerializeField] private InventorySlots inventory;
+
+    [SerializeField] private DestructionObject destruction;
 
     public void OnTriggerEnter(Collider weapon)
     {
-        if (weapon.gameObject.tag == "Knife")
+        if (weapon.CompareTag("Knife"))
         {
-            inv.Check(1);
-
+            inventory.AddItem(1);
         }
-        else if (weapon.gameObject.tag == "Dubina")
+        else if (weapon.CompareTag("Dubina"))
         {
-            inv.Check(2);
+            destruction.DestroyObject();
+            inventory.AddItem(2);
         }
         
     }

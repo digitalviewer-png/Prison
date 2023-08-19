@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private PlayerDeath death;
 
     [SerializeField] private GameObject heart1, heart2, heart3;
+    [SerializeField] private GameObject screenOfHurt;
 
     public void OnTriggerEnter(Collider enemy)
     {
@@ -20,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
     public void HealthDamage(int damage)
     {
         health -= damage;
+        screenOfHurt.SetActive(true);
+        StartCoroutine(HurtScreen());
         if (health == 2)
         {
             heart3.SetActive(false);
@@ -37,6 +40,11 @@ public class PlayerHealth : MonoBehaviour
             health = 0;
             death.Death();
         }
+    }
+    IEnumerator HurtScreen()
+    {
+        yield return new WaitForSeconds(0.2f);
+        screenOfHurt.SetActive(false);
     }
 
 }

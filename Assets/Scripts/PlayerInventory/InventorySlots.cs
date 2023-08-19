@@ -12,10 +12,8 @@ public class InventorySlots : MonoBehaviour
 
     [SerializeField] private ThrowingWeapons throwing;
 
-
-
     private float weaponNumber;
-    private bool weapon1Slot = true,weapon2Slot = true,weapon3Slot = true;
+    private bool weapon1Slot = true, weapon2Slot = false, weapon3Slot = false;
 
     public void Update()
     {
@@ -77,7 +75,7 @@ public class InventorySlots : MonoBehaviour
         }
     }
 
-    public void Check(int number)
+    public void AddItem(int number)
     {
         if (weapon1Slot == false && number == 1)
         {
