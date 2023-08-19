@@ -10,7 +10,7 @@ public class Crouch : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Animator animator;
-
+    [SerializeField] private PlayerCamera playerCamera;
     private bool isCrouching = false;
 
     private Vector3 _newPos;
@@ -35,6 +35,7 @@ public class Crouch : MonoBehaviour
                 animator.SetBool("isCrouching", true);
                 isCrouching = true;
                 Crouching();
+                playerCamera.CameraMoveOn();
 
             }
 
@@ -44,6 +45,7 @@ public class Crouch : MonoBehaviour
                 characterController.height += 0.85f;
                 characterController.center = _prevPos;
                 isCrouching = false;
+                playerCamera.CameraMoveOff();
             }
         }
 

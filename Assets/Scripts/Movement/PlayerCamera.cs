@@ -34,4 +34,14 @@ public class PlayerCamera : MonoBehaviour
         Vector3 desiredTargetPosition = desiredTargetRay.origin + desiredTargetRay.direction * 2f;
         aimTarget.position = desiredTargetPosition;  
     }
+
+    public void CameraMoveOn()
+    {
+        cam.cullingMask = ~(1 << LayerMask.NameToLayer("Player"));
+    }
+
+    public void CameraMoveOff()
+    {
+        cam.cullingMask = ~(0 << LayerMask.NameToLayer("Player"));
+    }
 }

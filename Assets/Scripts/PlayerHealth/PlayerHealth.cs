@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private PlayerDeath death;
 
     public void OnTriggerEnter(Collider enemy)
     {
@@ -21,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         if (health < 1)
         {
             health = 0;
-            Debug.Log("Death");
+            death.Death();
         }
     }
 
