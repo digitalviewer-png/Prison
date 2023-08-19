@@ -12,10 +12,12 @@ public class PickUpItems : MonoBehaviour
         if (weapon.gameObject.tag == "Knife")
         {
             inv.Check(1);
+
         }
         else if (weapon.gameObject.tag == "Dubina")
         {
             inv.Check(2);
         }
+        
     }
 }

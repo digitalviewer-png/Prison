@@ -15,19 +15,22 @@ public class PlayerDeath : MonoBehaviour
     private void Update()
     {
         V3 = player.transform.position;
+        
     }
 
     public void Death()
     {
+        Vector3 look = player.transform.forward;
         player.SetActive(false);
         ragdoll.SetActive(true);
         playerUI.SetActive(false);
-        Instantiate(ragdoll, V3, transform.rotation);
+        Instantiate(ragdoll, V3, Quaternion.LookRotation(look));
         StartCoroutine(DeathScreen());
     }
     IEnumerator DeathScreen()
     {
         yield return new WaitForSeconds(2f);
         deathScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 }
