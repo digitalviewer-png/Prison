@@ -58,4 +58,19 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(playerVelocity * Time.deltaTime); 
     }
+
+    public void SpeedBuff()
+    {
+        speed = speed + 4f;
+        run = run + 4f;
+        StartCoroutine(ReturnSpeed());
+    }
+
+    IEnumerator ReturnSpeed()
+    {
+        yield return new WaitForSeconds(3);
+        speed = speed - 4f;
+        run = run - 4f;
+
+    }
 }

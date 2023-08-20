@@ -30,6 +30,10 @@ public class PlayerHealth : MonoBehaviour
         else if (health == 1) 
         {
             heart2.SetActive(false);
+            if (heart3 != false) 
+            {
+                heart3.SetActive(false);
+            }
         }
         else if (health == 0) 
         {
