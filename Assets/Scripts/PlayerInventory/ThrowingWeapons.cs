@@ -18,8 +18,8 @@ public class ThrowingWeapons : MonoBehaviour
         
         if (weapon == 1)
         {
+            Debug.Log("Kinul");
             Instantiate(weaponType1, spawnPoint.transform.position, Quaternion.LookRotation(look)).GetComponent<Rigidbody>().AddForce(transform.forward * spawnSpeed);
-            
         }
         else if (weapon == 2)
         {
