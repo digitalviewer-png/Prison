@@ -11,6 +11,7 @@ public class CupOfBuff : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerMovement.SpeedBuff();
+            Destroy(this.gameObject);
         }
     }
 }

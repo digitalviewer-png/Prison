@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MetalDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private InventorySlots inventorySlots;
+
+    public void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            inventorySlots.RemoveItems();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

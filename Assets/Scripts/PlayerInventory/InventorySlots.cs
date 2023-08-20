@@ -94,4 +94,11 @@ public class InventorySlots : MonoBehaviour
         }
     }
 
+    public void RemoveItems() 
+    {
+        weapon1.SetActive (false); weapon1Slot = false;
+        weapon2.SetActive (false); weapon2Slot = false;
+        weapon3.SetActive (false); weapon3Slot = false;
+    }
+
 }
