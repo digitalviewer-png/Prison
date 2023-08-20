@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,9 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField] private Transform groundCheck;
-    
-    [SerializeField] private float speed = 6f;
-    [SerializeField] private float run = 12f;
+
+    [SerializeField] private float speed = 4f;
+    [SerializeField] private float run = 8f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private float jumpHeight = 3f;
@@ -27,22 +26,22 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && playerVelocity.y < 0) 
+        if (isGrounded && playerVelocity.y < 0)
         {
             playerVelocity.y = -2f;
         }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        
+
         Vector3 move = transform.right * x + transform.forward * z;
         characterController.Move(move * speed * Time.deltaTime);
 
         animator.SetFloat("Forward", z);
         animator.SetFloat("Strafe", x);
-        
 
-        if (Input.GetButtonDown("Jump") && isGrounded) 
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetTrigger("isJumping");
@@ -52,25 +51,40 @@ public class PlayerMovement : MonoBehaviour
         {
             characterController.Move(move * run * Time.deltaTime);
         }
- 
+
 
         playerVelocity.y += gravity * Time.deltaTime;
 
-        characterController.Move(playerVelocity * Time.deltaTime); 
+        characterController.Move(playerVelocity * Time.deltaTime);
     }
 
     public void SpeedBuff()
     {
-        speed = speed + 4f;
-        run = run + 4f;
+        speed = 8f;
+        run = 12f;
         StartCoroutine(ReturnSpeed());
+    }
+
+    public void SpeedDeBuff()
+    {
+        speed = 2f;
+        run = 4f;
+        StartCoroutine(ReturnSpeedPlus());
+    }
+
+    IEnumerator ReturnSpeedPlus()
+    {
+        yield return new WaitForSeconds(3);
+        speed = 4f;
+        run = 8f;
     }
 
     IEnumerator ReturnSpeed()
     {
         yield return new WaitForSeconds(3);
-        speed = speed - 4f;
-        run = run - 4f;
+        speed = 4f;
+        run = 8f;
 
     }
+
 }
