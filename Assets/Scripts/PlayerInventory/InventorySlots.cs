@@ -43,7 +43,7 @@ public class InventorySlots : MonoBehaviour
     }
     public void ThrowItem()
     {
-        if(weaponNumber == 1 && Input.GetButtonDown("Fire1")) 
+        if(weaponNumber == 1 && Input.GetButtonDown("Fire1") && Cursor.lockState == CursorLockMode.Locked) 
         {
             weapon1.SetActive(false);
             if (!weapon1Slot == false)
@@ -54,7 +54,7 @@ public class InventorySlots : MonoBehaviour
 
         }
 
-        else if (weaponNumber == 2 && Input.GetButtonDown("Fire1"))
+        else if (weaponNumber == 2 && Input.GetButtonDown("Fire1") && Cursor.lockState == CursorLockMode.Locked)
         {
             weapon2.SetActive(false);
             if (!weapon2Slot == false)
@@ -64,7 +64,7 @@ public class InventorySlots : MonoBehaviour
             weapon2Slot = false;
         }
 
-        else if (weaponNumber == 3 && Input.GetButtonDown("Fire1"))
+        else if (weaponNumber == 3 && Input.GetButtonDown("Fire1") && Cursor.lockState == CursorLockMode.Locked)
         {
             weapon3.SetActive(false);
             if (!weapon3Slot == false)

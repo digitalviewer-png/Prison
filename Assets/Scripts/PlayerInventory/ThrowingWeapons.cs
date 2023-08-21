@@ -16,12 +16,12 @@ public class ThrowingWeapons : MonoBehaviour
     {
         Vector3 look = -spawnPoint.transform.forward;
         
-        if (weapon == 1)
+        if (weapon == 1 && Cursor.lockState == CursorLockMode.Locked)
         {
             Debug.Log("Kinul");
             Instantiate(weaponType1, spawnPoint.transform.position, Quaternion.LookRotation(look)).GetComponent<Rigidbody>().AddForce(transform.forward * spawnSpeed);
         }
-        else if (weapon == 2)
+        else if (weapon == 2 && Cursor.lockState == CursorLockMode.Locked)
         {
             Instantiate(weaponType2, spawnPoint.transform.position, Quaternion.LookRotation(look)).GetComponent<Rigidbody>().AddForce(transform.forward * spawnSpeed);
         }
