@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public static TextMeshProUGUI scoreText;
-    public static Score instance;
-    public static float score;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private float score;
 
-    public void Awake()
+    public void Start()
     {
-        scoreText = GameObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>();
-        DontDestroyOnLoad(transform.gameObject);
-
+        score = PlayerPrefs.GetFloat("score");
+        scoreText.text = Convert.ToString(score);   
     }
 
-    public void OnLevelWasLoaded()
+    public void OnTriggerEnter(Collider other)
     {
-        score += 1000f;
-        scoreText.text = Convert.ToString(score);
+        if (other.CompareTag("Player"))
+        {
+            score += 1000f;
+            scoreText.text = Convert.ToString(score);
+            PlayerPrefs.SetFloat("score", score);
+            PlayerPrefs.Save();
+            this.gameObject.SetActive(false);
+        }
     }
+
 }

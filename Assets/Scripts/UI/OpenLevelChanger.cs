@@ -6,8 +6,6 @@ public class OpenLevelChanger : MonoBehaviour
     [SerializeField] private GameObject mainCharacter;
     [SerializeField] private GameObject button;
 
-    private bool hide = true;
-
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -22,15 +20,13 @@ public class OpenLevelChanger : MonoBehaviour
 
     public void ShowLevelChanger()
     {
-         hide = false;
          levelChanger.SetActive(true);
-         Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void HideLevelChanger()
     {
-         hide = true;
          levelChanger.SetActive(false);
-         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
