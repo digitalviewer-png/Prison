@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class Kris : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Animation anim;
+    [SerializeField] private GameObject kris;
+    [SerializeField] private GameObject player;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Vector3.Distance(player.transform.position, kris.transform.position) <= 2f)
+            {
+                anim.Play();
+            }
+        }
     }
 }
