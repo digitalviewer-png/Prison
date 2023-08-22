@@ -12,6 +12,10 @@ public class InventorySlots : MonoBehaviour
     private float weaponNumber;
     private bool weapon1Slot = true, weapon2Slot = false, weapon3Slot = false;
 
+    private void Start()
+    {
+        imageTracing1.SetActive(false);
+    }
     public void Update()
     {
         if (Input.GetKey(KeyCode.Alpha1))
