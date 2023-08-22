@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
@@ -11,12 +9,10 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] private float deceleration = 1f;
 
     [SerializeField] private int velocityHash;
-
     public void Start()
     {
         velocityHash = Animator.StringToHash("Velocity");
     }
-
     void Update()
     {
         bool forwardPressed = Input.GetKey("w");

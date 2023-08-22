@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SlowMotion : MonoBehaviour
@@ -12,7 +11,7 @@ public class SlowMotion : MonoBehaviour
             StartCoroutine(ZaWarudo());
         }
     }
-    IEnumerator ZaWarudo()
+    public IEnumerator ZaWarudo()
     {
         yield return new WaitForSeconds(2f);
         Time.timeScale = 1f;

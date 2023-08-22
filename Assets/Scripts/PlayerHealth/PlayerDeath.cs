@@ -15,7 +15,6 @@ public class PlayerDeath : MonoBehaviour
     private void Update()
     {
         V3 = player.transform.position;
-        
     }
 
     public void Death()
@@ -28,7 +27,8 @@ public class PlayerDeath : MonoBehaviour
         Instantiate(ragdoll, V3, Quaternion.LookRotation(look));
         StartCoroutine(DeathScreen());
     }
-    IEnumerator DeathScreen()
+
+    public IEnumerator DeathScreen()
     {
         yield return new WaitForSeconds(2f);
         deathScreen.SetActive(true);

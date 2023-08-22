@@ -13,14 +13,13 @@ public class MetalDetector : MonoBehaviour
         {
             tip.SetActive(true);
             inventorySlots.RemoveItems();
-            StartCoroutine(UI());
+            StartCoroutine(TipUIOff());
         }
     }
 
-    public IEnumerator UI()
+    public IEnumerator TipUIOff()
     {
         yield return new WaitForSeconds(2f);
         tip.SetActive(false);
     }
-
 }

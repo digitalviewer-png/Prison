@@ -13,11 +13,11 @@ public class Puddle : MonoBehaviour
         {
             tip.SetActive(true);
             playerMovement.SpeedDeBuff();
-            StartCoroutine(UI());
+            StartCoroutine(TipUIOff());
         }
     }
 
-    public IEnumerator UI()
+    public IEnumerator TipUIOff()
     {
         yield return new WaitForSeconds(2f);
         tip.SetActive(false);

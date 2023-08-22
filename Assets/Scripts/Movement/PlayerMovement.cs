@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private LayerMask groundMask;
 
-
     [SerializeField] private Transform groundCheck;
 
     [SerializeField] private float speed = 4f;
@@ -16,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private float jumpHeight = 3f;
-
 
     private Vector3 playerVelocity;
 
@@ -52,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
             characterController.Move(move * run * Time.deltaTime);
         }
 
-
         playerVelocity.y += gravity * Time.deltaTime;
 
         characterController.Move(playerVelocity * Time.deltaTime);
@@ -72,19 +69,18 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(ReturnSpeedPlus());
     }
 
-    IEnumerator ReturnSpeedPlus()
+    public IEnumerator ReturnSpeedPlus()
     {
         yield return new WaitForSeconds(3);
         speed = 4f;
         run = 8f;
     }
 
-    IEnumerator ReturnSpeed()
+    public IEnumerator ReturnSpeed()
     {
         yield return new WaitForSeconds(3);
         speed = 4f;
         run = 8f;
-
     }
 
 }

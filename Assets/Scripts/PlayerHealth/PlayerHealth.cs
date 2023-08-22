@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider enemy)
     {
-        if (enemy.gameObject.tag == "Enemy")
+        if (enemy.CompareTag("Enemy"))
         {
             HealthDamage(1);
         }
