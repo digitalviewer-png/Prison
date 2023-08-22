@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private AudioSource music;
 
     [SerializeField] private Animation doorAnim;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))

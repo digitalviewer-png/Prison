@@ -23,7 +23,7 @@ public class PlayerDeath : MonoBehaviour
         player.SetActive(false);
         ragdoll.SetActive(true);
         playerUI.SetActive(false);
-        
+        music.Pause();
         Instantiate(ragdoll, V3, Quaternion.LookRotation(look));
         StartCoroutine(DeathScreen());
     }

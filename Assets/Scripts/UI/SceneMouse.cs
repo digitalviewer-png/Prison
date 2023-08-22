@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneMouse : MonoBehaviour
@@ -8,5 +6,4 @@ public class SceneMouse : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
     }
-
 }

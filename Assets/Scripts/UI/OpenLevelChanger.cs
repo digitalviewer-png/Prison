@@ -27,6 +27,5 @@ public class OpenLevelChanger : MonoBehaviour
     {
         levelChanger.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
-
     }
 }

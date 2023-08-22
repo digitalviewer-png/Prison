@@ -21,10 +21,13 @@ public class Score : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             tip.SetActive(true);
+
             score += 1000f;
             scoreText.text = Convert.ToString(score);
+
             PlayerPrefs.SetFloat("score", score);
             PlayerPrefs.Save();
+
             this.gameObject.SetActive(false);
         }
     }
