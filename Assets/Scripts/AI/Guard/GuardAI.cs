@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,11 +9,12 @@ public class GuardAI : MonoBehaviour
 
     [SerializeField] private TargetForGuardAI targetForAI;
 
-    [SerializeField] private float lookRadius;
-
     [SerializeField] private Animator animator;
 
     [SerializeField] private PlayerHealth playerHealth;
+
+    [SerializeField] private float lookRadius;
+
     public void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
@@ -23,7 +22,6 @@ public class GuardAI : MonoBehaviour
         {
             agent.SetDestination(target.position);
             animator.SetBool("TargetInVision", true);
-            
 
             if (distance + 0.1f <= agent.stoppingDistance) 
             {
@@ -36,9 +34,7 @@ public class GuardAI : MonoBehaviour
             {
                 animator.SetBool("TargetInVision", true);
                 animator.SetBool("isFighting", false);
-                
             }
-
         }
 
         if (distance > lookRadius) 

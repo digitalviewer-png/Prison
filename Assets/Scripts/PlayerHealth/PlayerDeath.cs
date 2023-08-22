@@ -1,14 +1,14 @@
 using System.Collections;
-using System.Linq.Expressions;
 using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject ragdoll;
-
     [SerializeField] private GameObject playerUI;
     [SerializeField] private GameObject deathScreen;
+
+    [SerializeField] private AudioSource music;
 
     private Vector3 V3;
 
@@ -24,6 +24,7 @@ public class PlayerDeath : MonoBehaviour
         player.SetActive(false);
         ragdoll.SetActive(true);
         playerUI.SetActive(false);
+        
         Instantiate(ragdoll, V3, Quaternion.LookRotation(look));
         StartCoroutine(DeathScreen());
     }

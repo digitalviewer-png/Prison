@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int health;
+
     [SerializeField] private PlayerDeath death;
 
     [SerializeField] private GameObject heart1, heart2, heart3;
@@ -17,38 +17,42 @@ public class PlayerHealth : MonoBehaviour
             HealthDamage(1);
         }
     }
-    
+
     public void HealthDamage(int damage)
     {
         health -= damage;
         screenOfHurt.SetActive(true);
         StartCoroutine(HurtScreen());
+
         if (health == 2)
         {
             heart3.SetActive(false);
         }
-        else if (health == 1) 
+
+        else if (health == 1)
         {
             heart2.SetActive(false);
-            if (heart3 != false) 
+            if (heart3 != false)
             {
                 heart3.SetActive(false);
             }
         }
-        else if (health == 0) 
+
+        else if (health == 0)
         {
             heart1.SetActive(false);
         }
+
         if (health < 1)
         {
             health = 0;
             death.Death();
         }
     }
-    IEnumerator HurtScreen()
+
+    public IEnumerator HurtScreen()
     {
         yield return new WaitForSeconds(0.2f);
         screenOfHurt.SetActive(false);
     }
-
 }

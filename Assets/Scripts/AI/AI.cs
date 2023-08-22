@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,8 +5,8 @@ public class AI : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private AIPointSpawn spawn;
-    [SerializeField] private float radius;
 
+    [SerializeField] private float radius;
 
     public void Update()
     {
@@ -18,12 +16,8 @@ public class AI : MonoBehaviour
         }
     }
 
-
-
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-
-
 }

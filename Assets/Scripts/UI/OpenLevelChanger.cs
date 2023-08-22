@@ -17,17 +17,16 @@ public class OpenLevelChanger : MonoBehaviour
         }
     }
 
-
     public void ShowLevelChanger()
     {
-         levelChanger.SetActive(true);
+        levelChanger.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
     }
+
     public void HideLevelChanger()
     {
-         levelChanger.SetActive(false);
+        levelChanger.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
 
     }
-
 }

@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class AIPointSpawn : MonoBehaviour
 {
-
     [SerializeField] private float Range;
 
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)

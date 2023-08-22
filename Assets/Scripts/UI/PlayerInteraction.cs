@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -8,6 +6,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject guard;
 
+    [SerializeField] private AudioSource music;
+
     [SerializeField] private Animation doorAnim;
     private void Update()
     {
@@ -15,6 +15,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (Vector3.Distance(mainCharacter.transform.position, door.transform.position) <= 2f) 
             {
+                music.Play();
                 doorAnim.Play();
                 guard.SetActive(true);
             }
