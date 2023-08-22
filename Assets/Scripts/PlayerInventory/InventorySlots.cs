@@ -1,14 +1,11 @@
-using JetBrains.Annotations;
-using Microsoft.Unity.VisualStudio.Editor;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InventorySlots : MonoBehaviour
 {
-    [SerializeField] private GameObject image1;
-    [SerializeField] private GameObject image2;
-    [SerializeField] private GameObject image3;
-    [SerializeField] private GameObject weapon1, weapon2, weapon3;
+    [SerializeField] private GameObject imageTracing1;
+    [SerializeField] private GameObject imageTracing2;
+    [SerializeField] private GameObject imageTracing3;
+    [SerializeField] private GameObject weaponForThrowing1, weaponForThrowing2, weaponForThrowing3;
 
     [SerializeField] private ThrowingWeapons throwing;
 
@@ -17,46 +14,47 @@ public class InventorySlots : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1)) 
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-            image1.SetActive(true);
-            image2.SetActive(false);
-            image3.SetActive(false);
+            imageTracing1.SetActive(true);
+            imageTracing2.SetActive(false);
+            imageTracing3.SetActive(false);
             weaponNumber = 1;
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            image1.SetActive(false);
-            image2.SetActive(true);
-            image3.SetActive(false);
+            imageTracing1.SetActive(false);
+            imageTracing2.SetActive(true);
+            imageTracing3.SetActive(false);
             weaponNumber = 2;
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
-            image1.SetActive(false);
-            image2.SetActive(false);
-            image3.SetActive(true);
+            imageTracing1.SetActive(false);
+            imageTracing2.SetActive(false);
+            imageTracing3.SetActive(true);
             weaponNumber = 3;
         }
         ThrowItem();
-        
     }
+
     public void ThrowItem()
     {
-        if(weaponNumber == 1 && Input.GetButtonDown("Fire1") && Cursor.lockState == CursorLockMode.Locked) 
+        if (weaponNumber == 1 && Input.GetButtonDown("Fire1") && Cursor.lockState == CursorLockMode.Locked)
         {
-            weapon1.SetActive(false);
+            weaponForThrowing1.SetActive(false);
+
             if (!weapon1Slot == false)
             {
                 throwing.Throw(1);
-           }
+            }
             weapon1Slot = false;
-
         }
 
         else if (weaponNumber == 2 && Input.GetButtonDown("Fire1") && Cursor.lockState == CursorLockMode.Locked)
         {
-            weapon2.SetActive(false);
+            weaponForThrowing2.SetActive(false);
+
             if (!weapon2Slot == false)
             {
                 throwing.Throw(2);
@@ -66,7 +64,8 @@ public class InventorySlots : MonoBehaviour
 
         else if (weaponNumber == 3 && Input.GetButtonDown("Fire1") && Cursor.lockState == CursorLockMode.Locked)
         {
-            weapon3.SetActive(false);
+            weaponForThrowing3.SetActive(false);
+
             if (!weapon3Slot == false)
             {
                 throwing.Throw(2);
@@ -79,26 +78,27 @@ public class InventorySlots : MonoBehaviour
     {
         if (weapon1Slot == false && number == 1)
         {
-            weapon1.SetActive(true);
+            weaponForThrowing1.SetActive(true);
             weapon1Slot = true;
         }
+
         else if (weapon2Slot == false && number == 2)
         {
-            weapon2.SetActive(true);
+            weaponForThrowing2.SetActive(true);
             weapon2Slot = true;
         }
+
         else if (weapon3Slot == false && number == 2)
         {
-            weapon3.SetActive(true);
+            weaponForThrowing3.SetActive(true);
             weapon3Slot = true;
         }
     }
 
-    public void RemoveItems() 
+    public void RemoveItems()
     {
-        weapon1.SetActive (false); weapon1Slot = false;
-        weapon2.SetActive (false); weapon2Slot = false;
-        
+        weaponForThrowing1.SetActive(false); weapon1Slot = false;
+        weaponForThrowing2.SetActive(false); weapon2Slot = false;
     }
 
 }

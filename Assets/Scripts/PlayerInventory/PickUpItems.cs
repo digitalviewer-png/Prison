@@ -23,7 +23,6 @@ public class PickUpItems : MonoBehaviour
             StartCoroutine(UI());
             inventory.AddItem(2);
         }
-        
     }
 
     public IEnumerator UI()
