@@ -8,7 +8,7 @@ public class AI : MonoBehaviour
 
     [SerializeField] private float radius;
 
-    public void Update()
+    private void Update()
     {
         if (!agent.hasPath)
         {

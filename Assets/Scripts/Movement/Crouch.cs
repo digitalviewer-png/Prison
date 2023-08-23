@@ -16,7 +16,7 @@ public class Crouch : MonoBehaviour
     private Vector3 _newPos;
     private Vector3 _prevPos;
 
-    public void Update()
+    private void Update()
     {
         _newPos = new Vector3(0, 1.13f, 0);
         _prevPos = new Vector3(0, 1f, 0);

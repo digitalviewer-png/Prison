@@ -6,7 +6,7 @@ public class Lvl2Change : MonoBehaviour
 {
     [SerializeField] private int sceneNumber;
 
-    public void Start()
+    private void Start()
     {
         StartCoroutine(LoadAfterTimer());
     }

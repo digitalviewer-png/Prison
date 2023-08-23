@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SceneMouse : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
     }

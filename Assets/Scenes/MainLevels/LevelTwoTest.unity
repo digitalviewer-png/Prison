@@ -17835,8 +17835,9 @@ GameObject:
   - component: {fileID: 652865349}
   - component: {fileID: 652865348}
   - component: {fileID: 652865347}
+  - component: {fileID: 652865350}
   m_Layer: 0
-  m_Name: Clear Savew Button (1)
+  m_Name: Clear Save Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17906,7 +17907,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 652865348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 652865350}
+        m_TargetAssemblyTypeName: DeletePlayerPrefs, Assembly-CSharp
+        m_MethodName: DeleteSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &652865348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17945,6 +17958,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652865345}
   m_CullTransparentMesh: 1
+--- !u!114 &652865350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652865345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f639a62964961c48929498ba6c05668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 1255221507}
 --- !u!1 &652999235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1356678183040948, guid: 30683609dc545c4489079fee60ffd546,
@@ -18296,13 +18322,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267510707097334782, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267510707097334782, guid: 207e68bf46e4a954aa25a8f542bce066,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 205
+      value: 207.99994
       objectReference: {fileID: 0}
     - target: {fileID: 4267510707097334782, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -64
+      value: -73
       objectReference: {fileID: 0}
     - target: {fileID: 4572676255696095256, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}
@@ -18377,12 +18408,12 @@ PrefabInstance:
     - target: {fileID: 6394586071727700019, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 205
+      value: 208
       objectReference: {fileID: 0}
     - target: {fileID: 6394586071727700019, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -64
+      value: -73
       objectReference: {fileID: 0}
     - target: {fileID: 6571450290834575355, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}
@@ -18392,7 +18423,7 @@ PrefabInstance:
     - target: {fileID: 7632285470279152918, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 80
+      value: 87
       objectReference: {fileID: 0}
     - target: {fileID: 8206381126584361950, guid: 207e68bf46e4a954aa25a8f542bce066,
         type: 3}

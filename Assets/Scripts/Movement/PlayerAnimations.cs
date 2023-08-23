@@ -9,11 +9,11 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] private float deceleration = 1f;
 
     [SerializeField] private int velocityHash;
-    public void Start()
+    private void Start()
     {
         velocityHash = Animator.StringToHash("Velocity");
     }
-    void Update()
+    private void Update()
     {
         bool forwardPressed = Input.GetKey("w");
         bool runPressed = Input.GetKey("left shift");

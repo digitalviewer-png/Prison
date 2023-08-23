@@ -6,7 +6,7 @@ public class OpenLevelChanger : MonoBehaviour
     [SerializeField] private GameObject mainCharacter;
     [SerializeField] private GameObject button;
 
-    public void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {

@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
 
     private float score;
 
-    public void Start()
+    private void Start()
     {
         score = PlayerPrefs.GetFloat("score");
         scoreText.text = Convert.ToString(score);
@@ -31,4 +31,12 @@ public class Score : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+    public void UpdateUI()
+    {
+        score = 0;
+        scoreText.text = Convert.ToString(score);
+    }
+
 }
+
+

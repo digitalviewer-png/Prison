@@ -16,7 +16,7 @@ public class InventorySlots : MonoBehaviour
     {
         imageTracing1.SetActive(false);
     }
-    public void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.Alpha1))
         {
